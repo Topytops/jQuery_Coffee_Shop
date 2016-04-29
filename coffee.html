@@ -16,7 +16,7 @@
         <h1>Coffee Shop</h1>
         <br>
 
-        <img id="coffee_image" src="FIXME" alt="make this image work" height="300" width="200">
+        <img id="coffee_image" src="static/coffee_beans.jpg" alt="make this image work" height="300" width="200">
 
         <h3 id="message">Click The Image To Order Coffee</h3>
 
@@ -47,25 +47,27 @@
     
     // var myImage = document.getElementById("coffee_image");
     var myImage = $("#coffee_image");
+
     // var myRevenueMessage = document.getElementById("revenue");
     var myRevenueMessage = $("revenue");
+
     // myImage.setAttribute('src', "static/coffee_beans.jpg");
     myImage.attr("src", "static/coffee_beans.jpg");
+
     // myImage.addEventListener('click', function () {
     //     return makeCoffee("brew");
     // });
-    function onClick(evt){
-        $("#coffee_image").attr("src", "static/coffee_machine.jpg");
-    }
-
+    myImage.on("click", function() {
+        myImage.attr("src", "static/coffee_machine.jpg");
+        return makeCoffee("brew");
+    });
 
     function makeCoffee() {
         myImage.src = "static/coffee_machine.jpg";
-        // setTimeout(function() { myImage.setAttribute('src', "static/coffee_mug.jpg"); }, 500);
-        $("#coffee_image").attr("src", "static/coffee_mug.jpg").fadeOut(500).attr("src", "static/coffee_beans.jpg").fadeIn(2500);
-        // setTimeout(function() { myImage.setAttribute('src', "static/coffee_beans.jpg"); }, 1500);
-        // $("#coffee_image").attr("src", "static/coffee_beans.jpg").fadeIn(1500);
+        setTimeout(function() { myImage.attr('src', "static/coffee_mug.jpg"); }, 1000);
+        setTimeout(function() { myImage.attr('src', "static/coffee_beans.jpg"); }, 2000);
     }
+
 
 </script>
 
